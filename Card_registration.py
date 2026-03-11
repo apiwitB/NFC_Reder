@@ -446,27 +446,34 @@ def confirm_otp():
 # ===================== ฟังก์ชันสำหรับหน้าการเติมเงิน =====================
 def open_top_up_window():
     top_window = Toplevel(root)
-    top_window.geometry("400x300")
-    top_window.title("Top Up")
-    top_window.configure(bg="seashell2")
-
+    top_window.geometry("450x380")
+    top_window.title("Top Up Balance")
+    
+    bg_color = "#F4F7FB"
+    card_bg = "#FFFFFF"
+    primary_color = "#4361EE"
+    success_color = "#2ECC71"
+    danger_color = "#E74C3C"
+    text_color = "#2B2D42"
+    
+    top_window.configure(bg=bg_color)
     top_card_id_var.set(card_id)
 
-    Label(top_window, text="Top Up", font=('TH Saraban New', 20, 'bold'),
-          bg="seashell2", fg="blue").pack(pady=10)
+    Label(top_window, text="💰 Top Up Balance", font=('TH Sarabun New', 24, 'bold'),
+          bg=bg_color, fg=primary_color).pack(pady=(15, 5))
 
-    frame_top = Frame(top_window, bg="seashell2")
-    frame_top.pack(pady=10)
+    frame_top = Frame(top_window, bg=card_bg, padx=20, pady=20, highlightbackground="#E2E8F0", highlightthickness=1)
+    frame_top.pack(pady=10, padx=20, fill="both", expand=True)
 
     Label(frame_top, text="Card ID:", font=('TH Sarabun New', 16, 'bold'),
-          bg="seashell2").grid(row=0, column=0, padx=5, pady=5, sticky='e')
+          bg=card_bg, fg=text_color).grid(row=0, column=0, padx=5, pady=10, sticky='e')
     Label(frame_top, textvariable=top_card_id_var, font=('TH Sarabun New', 16),
-          width=20, bg="white").grid(row=0, column=1, padx=5, pady=5)
+          width=22, bg="#F8FAFC", fg=primary_color, relief="solid", borderwidth=1).grid(row=0, column=1, padx=5, pady=10)
 
     Label(frame_top, text="Amount:", font=('TH Sarabun New', 16, 'bold'),
-          bg="seashell2").grid(row=1, column=0, padx=5, pady=5, sticky='e')
+          bg=card_bg, fg=text_color).grid(row=1, column=0, padx=5, pady=10, sticky='e')
     Entry(frame_top, textvariable=top_amount_var, font=('TH Sarabun New', 16),
-          width=20, bg="white").grid(row=1, column=1, padx=5, pady=5)
+          width=22, relief="solid", borderwidth=1).grid(row=1, column=1, padx=5, pady=10)
 
     def perform_top_up():
         btn_topup.config(state=DISABLED)
@@ -516,15 +523,18 @@ def open_top_up_window():
         finally:
             btn_topup.config(state=NORMAL)
 
-    btn_topup = Button(frame_top, text="Top Up", font=('TH Sarabun New', 14, 'bold'),
-                       command=perform_top_up, bg="light green")
-    btn_topup.grid(row=2, column=0, columnspan=2, pady=10)
+    frame_btns = Frame(frame_top, bg=card_bg)
+    frame_btns.grid(row=2, column=0, columnspan=2, pady=(15, 0))
+
+    btn_topup = Button(frame_btns, text="Confirm Top Up", font=('TH Sarabun New', 14, 'bold'),
+                       command=perform_top_up, bg=success_color, fg="white", relief="flat", activebackground="#27AE60", activeforeground="white", width=12)
+    btn_topup.pack(side=LEFT, padx=10)
+
+    Button(frame_btns, text="Close", font=('TH Sarabun New', 14, 'bold'),
+           command=top_window.destroy, bg=danger_color, fg="white", relief="flat", activebackground="#C0392B", activeforeground="white", width=8).pack(side=LEFT, padx=10)
 
     Label(top_window, textvariable=top_status_var, font=('TH Sarabun New', 16, 'bold'),
-          fg="red", bg="seashell2").pack(pady=10)
-
-    Button(top_window, text="Close", font=('TH Sarabun New', 14, 'bold'),
-           command=top_window.destroy, bg="tomato").pack(pady=10)
+          fg=danger_color, bg=bg_color).pack(pady=(0, 10))
 
 # ===================== ฟังก์ชันสำหรับ Reset และ Exit =====================
 def reset_fields():
@@ -559,9 +569,18 @@ def exit_app():
 
 # ===================== ส่วน GUI หลัก =====================
 root = Tk()
-root.geometry("600x400")
-root.title("NFC_registration")
-root.configure(bg="seashell2")
+root.geometry("700x550")
+root.title("NFC Card Registration & Management")
+
+bg_color = "#F4F7FB"
+card_bg = "#FFFFFF"
+primary_color = "#4361EE"
+success_color = "#2ECC71"
+warning_color = "#F39C12"
+danger_color = "#E74C3C"
+text_color = "#2B2D42"
+
+root.configure(bg=bg_color)
 
 card_id_var = StringVar()
 email_var = StringVar()
@@ -573,55 +592,49 @@ top_amount_var = StringVar()
 top_status_var = StringVar()
 
 # Title
-Label(root, text="NFC Card Registration", font=('TH Saraban New', 24, 'bold'),
-      bg="seashell2", fg="blue").pack(pady=10)
+Label(root, text="💳 NFC Card Registration", font=('TH Sarabun New', 28, 'bold'),
+      bg=bg_color, fg=primary_color).pack(pady=(20, 10))
 
 # Frame สำหรับการลงทะเบียน
-frame_main = Frame(root, bg="seashell2")
-frame_main.pack(pady=10)
+frame_main = Frame(root, bg=card_bg, padx=30, pady=20, highlightbackground="#E2E8F0", highlightthickness=1)
+frame_main.pack(pady=10, padx=40, fill="both", expand=True)
 
-Label(frame_main, text="Card ID:", font=('TH Sarabun New', 16, 'bold'),
-      bg="seashell2").grid(row=0, column=0, padx=5, pady=5, sticky='e')
-Label(frame_main, textvariable=card_id_var, font=('TH Sarabun New', 16),
-      width=20, bg="white").grid(row=0, column=1, padx=5, pady=5)
+label_font = ('TH Sarabun New', 16, 'bold')
+entry_font = ('TH Sarabun New', 16)
+btn_font = ('TH Sarabun New', 14, 'bold')
 
-Label(frame_main, text="Email:", font=('TH Sarabun New', 16, 'bold'),
-      bg="seashell2").grid(row=1, column=0, padx=5, pady=5, sticky='e')
-Entry(frame_main, textvariable=email_var, font=('TH Sarabun New', 16),
-      width=20, bg="white").grid(row=1, column=1, padx=5, pady=5)
+Label(frame_main, text="Card ID:", font=label_font, bg=card_bg, fg=text_color).grid(row=0, column=0, padx=10, pady=10, sticky='e')
+Label(frame_main, textvariable=card_id_var, font=entry_font, width=24, bg="#F8FAFC", fg=primary_color, relief="solid", borderwidth=1).grid(row=0, column=1, padx=10, pady=10)
 
-btn_send_otp = Button(frame_main, text="Send OTP", font=('TH Sarabun New', 14, 'bold'),
-                      command=send_otp, bg="light green")
-btn_send_otp.grid(row=1, column=2, padx=5, pady=5)
+Label(frame_main, text="Email:", font=label_font, bg=card_bg, fg=text_color).grid(row=1, column=0, padx=10, pady=10, sticky='e')
+Entry(frame_main, textvariable=email_var, font=entry_font, width=24, relief="solid", borderwidth=1).grid(row=1, column=1, padx=10, pady=10)
 
-Label(frame_main, text="OTP:", font=('TH Sarabun New', 16, 'bold'),
-      bg="seashell2").grid(row=2, column=0, padx=5, pady=5, sticky='e')
-Entry(frame_main, textvariable=otp_var, font=('TH Sarabun New', 16),
-      width=20, bg="white").grid(row=2, column=1, padx=5, pady=5)
+btn_send_otp = Button(frame_main, text="Send OTP", font=btn_font, command=send_otp, bg=warning_color, fg="white", relief="flat", activebackground="#D68910", activeforeground="white", width=12)
+btn_send_otp.grid(row=1, column=2, padx=10, pady=10)
 
-btn_confirm = Button(frame_main, text="Confirm", font=('TH Sarabun New', 14, 'bold'),
-                     command=confirm_otp, bg="light blue")
-btn_confirm.grid(row=2, column=2, padx=5, pady=5)
+Label(frame_main, text="OTP:", font=label_font, bg=card_bg, fg=text_color).grid(row=2, column=0, padx=10, pady=10, sticky='e')
+Entry(frame_main, textvariable=otp_var, font=entry_font, width=24, relief="solid", borderwidth=1).grid(row=2, column=1, padx=10, pady=10)
 
-# ปุ่มสำหรับ Reset, Top Up และ Exit
-btn_reset = Button(frame_main, text="Reset", font=('TH Sarabun New', 14, 'bold'),
-                   command=reset_fields, bg="orange")
-btn_reset.grid(row=3, column=1, padx=5, pady=20, sticky='e')
+btn_confirm = Button(frame_main, text="Confirm", font=btn_font, command=confirm_otp, bg=success_color, fg="white", relief="flat", activebackground="#27AE60", activeforeground="white", width=12)
+btn_confirm.grid(row=2, column=2, padx=10, pady=10)
 
-btn_exit = Button(frame_main, text="Exit", font=('TH Sarabun New', 14, 'bold'),
-                  command=exit_app, bg="tomato")
-btn_exit.grid(row=3, column=2, padx=5, pady=20, sticky='w')
+# ปุ่มควบคุมด้านล่างฟอร์ม
+frame_controls = Frame(frame_main, bg=card_bg)
+frame_controls.grid(row=3, column=0, columnspan=3, pady=(30, 0))
 
-# ปุ่มเปิดหน้าการเติมเงิน
-btn_topup_main = Button(root, text="Top Up", font=('TH Sarabun New', 14, 'bold'),
-                        command=open_top_up_window, bg="light blue")
-btn_topup_main.pack(pady=5)
+btn_reset = Button(frame_controls, text="🔄 Reset", font=btn_font, command=reset_fields, bg="#95A5A6", fg="white", relief="flat", activebackground="#7F8C8D", activeforeground="white", width=12)
+btn_reset.pack(side=LEFT, padx=10)
+
+btn_topup_main = Button(frame_controls, text="💰 Top Up", font=btn_font, command=open_top_up_window, bg=primary_color, fg="white", relief="flat", activebackground="#3B54CB", activeforeground="white", width=12)
+btn_topup_main.pack(side=LEFT, padx=10)
+
+btn_exit = Button(frame_controls, text="❌ Exit", font=btn_font, command=exit_app, bg=danger_color, fg="white", relief="flat", activebackground="#C0392B", activeforeground="white", width=12)
+btn_exit.pack(side=LEFT, padx=10)
 
 # เก็บ reference ปุ่มทั้งหมดเพื่อ disable/enable
 _gui_buttons.extend([btn_send_otp, btn_confirm, btn_reset, btn_exit, btn_topup_main])
 
-Label(root, textvariable=status_var, font=('TH Sarabun New', 16, 'bold'),
-      fg="red", bg="seashell2").pack(pady=10)
+Label(root, textvariable=status_var, font=('TH Sarabun New', 16, 'bold'), fg=danger_color, bg=bg_color).pack(pady=(0, 10))
 
 reader = NFC_Reader()
 

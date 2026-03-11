@@ -1,0 +1,179 @@
+2026-03-11 20:47:43 [INFO] Found reader: Windows Hello for Business 1
+2026-03-11 20:47:43 [INFO] Waiting for card...
+2026-03-11 20:47:43 [DEBUG] Sending command...
+2026-03-11 20:47:44 [DEBUG] Sending command...
+2026-03-11 20:47:45 [DEBUG] Sending command...
+2026-03-11 20:47:46 [DEBUG] Sending command...
+2026-03-11 20:47:47 [DEBUG] Sending command...
+2026-03-11 20:47:48 [DEBUG] Sending command...
+2026-03-11 20:47:49 [DEBUG] Sending command...
+2026-03-11 20:47:50 [DEBUG] Sending command...
+2026-03-11 20:47:51 [DEBUG] Sending command...
+2026-03-11 20:47:52 [DEBUG] Sending command...
+2026-03-11 20:47:53 [DEBUG] Sending command...
+2026-03-11 20:47:54 [DEBUG] Sending command...
+2026-03-11 20:47:55 [DEBUG] Sending command...
+2026-03-11 20:47:56 [DEBUG] Sending command...
+2026-03-11 20:47:57 [DEBUG] Sending command...
+2026-03-11 20:47:58 [DEBUG] Sending command...
+2026-03-11 20:47:59 [DEBUG] Sending command...
+2026-03-11 20:48:00 [DEBUG] Sending command...
+2026-03-11 20:48:01 [DEBUG] Sending command...
+2026-03-11 20:48:02 [DEBUG] Sending command...
+2026-03-11 20:48:03 [DEBUG] Sending command...
+2026-03-11 20:48:04 [DEBUG] Sending command...
+2026-03-11 20:48:05 [DEBUG] Sending command...
+2026-03-11 20:48:06 [DEBUG] Sending command...
+2026-03-11 20:49:35 [INFO] Found reader: ACS ACR122 0
+2026-03-11 20:49:35 [INFO] Waiting for card...
+2026-03-11 20:49:35 [DEBUG] Sending command...
+2026-03-11 20:49:35 [INFO] Card found! UID: C5_A6_23_03_90_00
+2026-03-11 20:49:35 [INFO] Application started. card_id=C5_A6_23_03_90_00
+2026-03-11 20:49:53 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:49:56 [ERROR] Error sending OTP email to apiwit.bunlom: {'apiwit.bunlom': (553, b'5.1.3 The recipient address <apiwit.bunlom> is not a valid RFC 5321 address.\n5.1.3 For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. 41be03b00d2f7-c73cdf92d8esm2574408a12.16 - gsmtp')}
+2026-03-11 20:49:56 [ERROR] Send OTP FAILED: email send failed for card_id=C5_A6_23_03_90_00, email=apiwit.bunlom
+2026-03-11 20:50:05 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:50:09 [INFO] OTP sent successfully to apiwit.bunlom@gmail.com
+2026-03-11 20:50:09 [INFO] OTP sent: card_id=C5_A6_23_03_90_00, email=apiwit.bunlom@gmail.com
+2026-03-11 20:50:30 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:50:32 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:50:32 [DEBUG] Uploaded tmp file: C5_A6_23_03_90_00/_tmp_C5_A6_23_03_90_00.json
+2026-03-11 20:50:32 [DEBUG] Renamed _tmp_C5_A6_23_03_90_00.json → C5_A6_23_03_90_00.json
+2026-03-11 20:50:32 [INFO] FTP upload + verify success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json (149 bytes)
+2026-03-11 20:50:32 [INFO] Registration SUCCESS: card_id=C5_A6_23_03_90_00, email=apiwit.bunlom@gmail.com
+2026-03-11 20:50:43 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:50:44 [INFO] FTP download success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json
+2026-03-11 20:50:46 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:50:46 [DEBUG] Uploaded tmp file: C5_A6_23_03_90_00/_tmp_C5_A6_23_03_90_00.json
+2026-03-11 20:50:46 [DEBUG] Renamed _tmp_C5_A6_23_03_90_00.json → C5_A6_23_03_90_00.json
+2026-03-11 20:50:46 [INFO] FTP upload + verify success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json (249 bytes)
+2026-03-11 20:50:46 [INFO] Top-up SUCCESS: card_id=C5_A6_23_03_90_00, amount=200.00, new_balance=200.00, time=2026-03-11 20:50:44
+2026-03-11 20:50:53 [INFO] Found reader: ACS ACR122 0
+2026-03-11 20:50:53 [INFO] Waiting for card...
+2026-03-11 20:50:53 [DEBUG] Sending command...
+2026-03-11 20:50:53 [INFO] Card found! UID: C5_A6_23_03_90_00
+2026-03-11 20:50:53 [INFO] Fields reset. New card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:34 [INFO] Found reader: ACS ACR122 0
+2026-03-11 20:51:34 [INFO] Waiting for card...
+2026-03-11 20:51:34 [DEBUG] Sending command...
+2026-03-11 20:51:34 [INFO] Card found! UID: C5_A6_23_03_90_00
+2026-03-11 20:51:34 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:34 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=200.00
+2026-03-11 20:51:34 [INFO] NFC Toll System started. card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:43 [INFO] --- Start Syncing Data ---
+2026-03-11 20:51:43 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:43 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=200.00
+2026-03-11 20:51:43 [INFO] PASS: card_id=C5_A6_23_03_90_00, balance=200.00, mode=entry, entry=ด่าน A, exit=ด่าน B
+2026-03-11 20:51:43 [INFO] Transaction log: ENTRY at ด่าน A, time=2026-03-11 20:51:43, card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:43 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:43 [DEBUG] Uploaded tmp file: C5_A6_23_03_90_00/_tmp_C5_A6_23_03_90_00.json
+2026-03-11 20:51:43 [DEBUG] Renamed _tmp_C5_A6_23_03_90_00.json → C5_A6_23_03_90_00.json
+2026-03-11 20:51:43 [INFO] FTP upload + verify success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json (396 bytes)
+2026-03-11 20:51:43 [INFO] FTP update success for card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:45 [INFO] --- Start Syncing Data ---
+2026-03-11 20:51:45 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:45 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=200.00
+2026-03-11 20:51:45 [INFO] PASS: card_id=C5_A6_23_03_90_00, balance=200.00, mode=exit, entry=ด่าน A, exit=ด่าน B
+2026-03-11 20:51:45 [INFO] Transaction log: EXIT from ด่าน B, cost=150.00, time=2026-03-11 20:51:45, card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:45 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:45 [DEBUG] Uploaded tmp file: C5_A6_23_03_90_00/_tmp_C5_A6_23_03_90_00.json
+2026-03-11 20:51:45 [DEBUG] Renamed _tmp_C5_A6_23_03_90_00.json → C5_A6_23_03_90_00.json
+2026-03-11 20:51:45 [INFO] FTP upload + verify success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json (550 bytes)
+2026-03-11 20:51:45 [INFO] FTP update success for card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:50 [INFO] --- Start Syncing Data ---
+2026-03-11 20:51:50 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:50 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=50.00
+2026-03-11 20:51:50 [WARNING] DENIED: card_id=C5_A6_23_03_90_00, mode=exit, balance=50.00 < cost=200, entry=ด่าน A, exit=ด่าน C
+2026-03-11 20:51:50 [INFO] Signal: DENIED for card_id=C5_A6_23_03_90_00
+2026-03-11 20:51:55 [INFO] --- Start Syncing Data ---
+2026-03-11 20:51:55 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:51:55 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=50.00
+2026-03-11 20:51:55 [WARNING] DENIED: card_id=C5_A6_23_03_90_00, mode=entry, balance=50.00 < 200 (เงินไม่พอ)
+2026-03-11 20:51:55 [INFO] Signal: DENIED for card_id=C5_A6_23_03_90_00
+2026-03-11 20:52:01 [INFO] Waiting for card...
+2026-03-11 20:52:01 [DEBUG] Sending command...
+2026-03-11 20:52:01 [INFO] Card found! UID: C5_A6_23_03_90_00
+2026-03-11 20:52:01 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:52:01 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=50.00
+2026-03-11 20:52:01 [INFO] Reset fields. New card_id=C5_A6_23_03_90_00
+2026-03-11 20:52:11 [INFO] Waiting for card...
+2026-03-11 20:52:11 [DEBUG] Sending command...
+2026-03-11 20:52:12 [DEBUG] Sending command...
+2026-03-11 20:52:12 [INFO] Card found! UID: C5_B6_23_03_90_00
+2026-03-11 20:52:12 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:52:12 [ERROR] FTP download error (card_id=C5_B6_23_03_90_00, อาจยังไม่ได้ลงทะเบียน): 550 No such file or directory.
+2026-03-11 20:52:12 [INFO] Reset fields. New card_id=C5_B6_23_03_90_00
+2026-03-11 20:52:19 [INFO] Found reader: ACS ACR122 0
+2026-03-11 20:52:19 [INFO] Waiting for card...
+2026-03-11 20:52:19 [DEBUG] Sending command...
+2026-03-11 20:52:19 [INFO] Card found! UID: C5_B6_23_03_90_00
+2026-03-11 20:52:19 [INFO] Fields reset. New card_id=C5_B6_23_03_90_00
+2026-03-11 20:52:32 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:52:36 [INFO] OTP sent successfully to apiwit.bunlom@gmail.com
+2026-03-11 20:52:36 [INFO] OTP sent: card_id=C5_B6_23_03_90_00, email=apiwit.bunlom@gmail.com
+2026-03-11 20:52:54 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:52:56 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:52:56 [DEBUG] Uploaded tmp file: C5_B6_23_03_90_00/_tmp_C5_B6_23_03_90_00.json
+2026-03-11 20:52:56 [DEBUG] Renamed _tmp_C5_B6_23_03_90_00.json → C5_B6_23_03_90_00.json
+2026-03-11 20:52:57 [INFO] FTP upload + verify success: C5_B6_23_03_90_00/C5_B6_23_03_90_00.json (149 bytes)
+2026-03-11 20:52:57 [INFO] Registration SUCCESS: card_id=C5_B6_23_03_90_00, email=apiwit.bunlom@gmail.com
+2026-03-11 20:53:06 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:06 [INFO] FTP download success: C5_B6_23_03_90_00/C5_B6_23_03_90_00.json
+2026-03-11 20:53:08 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:08 [DEBUG] Uploaded tmp file: C5_B6_23_03_90_00/_tmp_C5_B6_23_03_90_00.json
+2026-03-11 20:53:08 [DEBUG] Renamed _tmp_C5_B6_23_03_90_00.json → C5_B6_23_03_90_00.json
+2026-03-11 20:53:08 [INFO] FTP upload + verify success: C5_B6_23_03_90_00/C5_B6_23_03_90_00.json (249 bytes)
+2026-03-11 20:53:08 [INFO] Top-up SUCCESS: card_id=C5_B6_23_03_90_00, amount=999.00, new_balance=999.00, time=2026-03-11 20:53:06
+2026-03-11 20:53:17 [INFO] Found reader: ACS ACR122 0
+2026-03-11 20:53:17 [INFO] Waiting for card...
+2026-03-11 20:53:17 [DEBUG] Sending command...
+2026-03-11 20:53:17 [INFO] Card found! UID: C5_A6_23_03_90_00
+2026-03-11 20:53:17 [INFO] Fields reset. New card_id=C5_A6_23_03_90_00
+2026-03-11 20:53:34 [INFO] Waiting for card...
+2026-03-11 20:53:34 [DEBUG] Sending command...
+2026-03-11 20:53:35 [DEBUG] Sending command...
+2026-03-11 20:53:35 [INFO] Card found! UID: C5_A6_23_03_90_00
+2026-03-11 20:53:35 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:35 [INFO] FTP download success: card_id=C5_A6_23_03_90_00, balance=50.00
+2026-03-11 20:53:35 [INFO] Reset fields. New card_id=C5_A6_23_03_90_00
+2026-03-11 20:53:41 [INFO] Waiting for card...
+2026-03-11 20:53:41 [DEBUG] Sending command...
+2026-03-11 20:53:42 [DEBUG] Sending command...
+2026-03-11 20:53:42 [INFO] Card found! UID: C5_B6_23_03_90_00
+2026-03-11 20:53:42 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:42 [INFO] FTP download success: card_id=C5_B6_23_03_90_00, balance=999.00
+2026-03-11 20:53:42 [INFO] Reset fields. New card_id=C5_B6_23_03_90_00
+2026-03-11 20:53:46 [INFO] --- Start Syncing Data ---
+2026-03-11 20:53:46 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:46 [INFO] FTP download success: card_id=C5_B6_23_03_90_00, balance=999.00
+2026-03-11 20:53:46 [INFO] PASS: card_id=C5_B6_23_03_90_00, balance=999.00, mode=entry, entry=ด่าน A, exit=ด่าน C
+2026-03-11 20:53:46 [INFO] Transaction log: ENTRY at ด่าน A, time=2026-03-11 20:53:46, card_id=C5_B6_23_03_90_00
+2026-03-11 20:53:46 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:46 [DEBUG] Uploaded tmp file: C5_B6_23_03_90_00/_tmp_C5_B6_23_03_90_00.json
+2026-03-11 20:53:46 [DEBUG] Renamed _tmp_C5_B6_23_03_90_00.json → C5_B6_23_03_90_00.json
+2026-03-11 20:53:46 [INFO] FTP upload + verify success: C5_B6_23_03_90_00/C5_B6_23_03_90_00.json (396 bytes)
+2026-03-11 20:53:46 [INFO] FTP update success for card_id=C5_B6_23_03_90_00
+2026-03-11 20:53:48 [INFO] --- Start Syncing Data ---
+2026-03-11 20:53:48 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:48 [INFO] FTP download success: card_id=C5_B6_23_03_90_00, balance=999.00
+2026-03-11 20:53:48 [INFO] PASS: card_id=C5_B6_23_03_90_00, balance=999.00, mode=exit, entry=ด่าน A, exit=ด่าน C
+2026-03-11 20:53:48 [INFO] Transaction log: EXIT from ด่าน C, cost=200.00, time=2026-03-11 20:53:48, card_id=C5_B6_23_03_90_00
+2026-03-11 20:53:48 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:48 [DEBUG] Uploaded tmp file: C5_B6_23_03_90_00/_tmp_C5_B6_23_03_90_00.json
+2026-03-11 20:53:48 [DEBUG] Renamed _tmp_C5_B6_23_03_90_00.json → C5_B6_23_03_90_00.json
+2026-03-11 20:53:48 [INFO] FTP upload + verify success: C5_B6_23_03_90_00/C5_B6_23_03_90_00.json (551 bytes)
+2026-03-11 20:53:48 [INFO] FTP update success for card_id=C5_B6_23_03_90_00
+2026-03-11 20:53:50 [INFO] Waiting for card...
+2026-03-11 20:53:50 [DEBUG] Sending command...
+2026-03-11 20:53:50 [INFO] Card found! UID: C5_B6_23_03_90_00
+2026-03-11 20:53:50 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:53:50 [INFO] FTP download success: card_id=C5_B6_23_03_90_00, balance=799.00
+2026-03-11 20:53:50 [INFO] Reset fields. New card_id=C5_B6_23_03_90_00
+2026-03-11 20:54:03 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:54:03 [INFO] FTP download success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json
+2026-03-11 20:54:05 [DEBUG] FTP connected (attempt 1/3)
+2026-03-11 20:54:05 [DEBUG] Uploaded tmp file: C5_A6_23_03_90_00/_tmp_C5_A6_23_03_90_00.json
+2026-03-11 20:54:05 [DEBUG] Renamed _tmp_C5_A6_23_03_90_00.json → C5_A6_23_03_90_00.json
+2026-03-11 20:54:05 [INFO] FTP upload + verify success: C5_A6_23_03_90_00/C5_A6_23_03_90_00.json (645 bytes)
+2026-03-11 20:54:05 [INFO] Top-up SUCCESS: card_id=C5_A6_23_03_90_00, amount=-500.00, new_balance=-450.00, time=2026-03-11 20:54:03
+2026-03-11 20:55:14 [INFO] Application exiting.

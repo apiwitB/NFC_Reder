@@ -255,10 +255,10 @@ def calculate_cost(entry, exit):
 def update_signal(can_pass):
     if can_pass:
         signal_status.set("PASS")
-        signal_label.config(bg="green")
+        signal_label.config(bg="#2ECC71") # Modern Green
     else:
         signal_status.set("DENIED")
-        signal_label.config(bg="red")
+        signal_label.config(bg="#E74C3C") # Modern Red
 
 def thread_ab():
     """ทุกครั้งที่ Tap Card จะโหลด Balance ใหม่จาก FTP เสมอ — thread-safe + ปิดปุ่ม"""
@@ -370,47 +370,73 @@ def reset_fields():
 
 # ===================== GUI SETUP =====================
 root = Tk()
-root.geometry("1100x600")
+root.geometry("900x550")
 root.title("NFC Toll System")
-root.configure(bg="seashell2")
+
+bg_color = "#F4F7FB"
+card_bg = "#FFFFFF"
+primary_color = "#4361EE"
+success_color = "#2ECC71"
+warning_color = "#F39C12"
+text_color = "#2B2D42"
+
+root.configure(bg=bg_color)
 
 card_id_var = StringVar(); entry_var = StringVar(value="ด่าน A")
 exit_var = StringVar(value="ด่าน B"); balance_var = StringVar()
 cost_var = StringVar(value="0"); signal_status = StringVar(value="READY")
 mode_var = StringVar(value="entry")
 
+# Title
+Label(root, text="🛣️ NFC Toll Gate System", font=('TH Sarabun New', 32, 'bold'),
+      bg=bg_color, fg=primary_color).pack(pady=(20, 10))
+
 # UI Frame
-f1 = Frame(root, bg="seashell2"); f1.pack(pady=20)
+f1 = Frame(root, bg=card_bg, padx=30, pady=30, highlightbackground="#E2E8F0", highlightthickness=1)
+f1.pack(pady=10, padx=40, fill="both", expand=True)
 
-Label(f1, text="Card ID:", font=('TH Sarabun New', 18, 'bold'), bg="seashell2").grid(row=0, column=0)
-Label(f1, textvariable=card_id_var, font=('TH Sarabun New', 18), bg="white", width=20).grid(row=0, column=1)
+label_font = ('TH Sarabun New', 18, 'bold')
+val_font = ('TH Sarabun New', 18)
 
-Label(f1, text="Balance:", font=('TH Sarabun New', 18, 'bold'), bg="seashell2").grid(row=0, column=2)
-Label(f1, textvariable=balance_var, font=('TH Sarabun New', 18), bg="powder blue", width=16).grid(row=0, column=3)
+Label(f1, text="Card ID:", font=label_font, bg=card_bg, fg=text_color).grid(row=0, column=0, sticky='e', padx=10, pady=15)
+Label(f1, textvariable=card_id_var, font=val_font, bg="#F8FAFC", fg=primary_color, width=22, relief="solid", borderwidth=1).grid(row=0, column=1, padx=10, pady=15)
 
-Label(f1, text="Entry:", font=('TH Sarabun New', 18), bg="seashell2").grid(row=1, column=0)
-OptionMenu(f1, entry_var, "ด่าน A", "ด่าน B", "ด่าน C").grid(row=1, column=1)
+Label(f1, text="Balance (THB):", font=label_font, bg=card_bg, fg=text_color).grid(row=0, column=2, sticky='e', padx=10, pady=15)
+Label(f1, textvariable=balance_var, font=val_font, bg="#E8F4F8", fg="#2980B9", width=18, relief="solid", borderwidth=1).grid(row=0, column=3, padx=10, pady=15)
 
-Label(f1, text="Exit:", font=('TH Sarabun New', 18), bg="seashell2").grid(row=2, column=0)
-OptionMenu(f1, exit_var, "ด่าน A", "ด่าน B", "ด่าน C").grid(row=2, column=1)
+Label(f1, text="Entry Station:", font=label_font, bg=card_bg, fg=text_color).grid(row=1, column=0, sticky='e', padx=10, pady=15)
+op_entry = OptionMenu(f1, entry_var, "ด่าน A", "ด่าน B", "ด่าน C")
+op_entry.config(font=val_font, bg="#F8FAFC", width=15, relief="solid", borderwidth=1)
+op_entry.grid(row=1, column=1, padx=10, pady=15, sticky='w')
 
-Label(f1, text="Cost:", font=('TH Sarabun New', 18, 'bold'), bg="seashell2").grid(row=1, column=2)
-Label(f1, textvariable=cost_var, font=('TH Sarabun New', 18), bg="powder blue", width=16).grid(row=1, column=3)
+Label(f1, text="Exit Station:", font=label_font, bg=card_bg, fg=text_color).grid(row=2, column=0, sticky='e', padx=10, pady=15)
+op_exit = OptionMenu(f1, exit_var, "ด่าน A", "ด่าน B", "ด่าน C")
+op_exit.config(font=val_font, bg="#F8FAFC", width=15, relief="solid", borderwidth=1)
+op_exit.grid(row=2, column=1, padx=10, pady=15, sticky='w')
 
-Label(f1, text="Signal:", font=('TH Sarabun New', 18, 'bold'), bg="seashell2").grid(row=2, column=2)
-signal_label = Label(f1, textvariable=signal_status, font=('TH Sarabun New', 18, 'bold'), width=16, fg="white", bg="light grey")
-signal_label.grid(row=2, column=3)
+Label(f1, text="Cost (THB):", font=label_font, bg=card_bg, fg=text_color).grid(row=1, column=2, sticky='e', padx=10, pady=15)
+Label(f1, textvariable=cost_var, font=val_font, bg="#FDEBD0", fg="#D35400", width=18, relief="solid", borderwidth=1).grid(row=1, column=3, padx=10, pady=15)
 
-Radiobutton(f1, text="Entry", variable=mode_var, value="entry", font=('TH Sarabun New', 16), bg="seashell2").grid(row=3, column=0)
-Radiobutton(f1, text="Exit", variable=mode_var, value="exit", font=('TH Sarabun New', 16), bg="seashell2").grid(row=3, column=1)
+Label(f1, text="Gate Signal:", font=label_font, bg=card_bg, fg=text_color).grid(row=2, column=2, sticky='e', padx=10, pady=15)
+signal_label = Label(f1, textvariable=signal_status, font=('TH Sarabun New', 18, 'bold'), width=18, fg="white", bg="#7F8C8D", relief="solid", borderwidth=1)
+signal_label.grid(row=2, column=3, padx=10, pady=15)
 
-btn_tap = Button(f1, text="Tap Card (Sync & Pay)", font=('TH Sarabun New', 16, 'bold'), bg="light green",
+frame_mode = Frame(f1, bg=card_bg)
+frame_mode.grid(row=3, column=0, columnspan=2, pady=15)
+
+Radiobutton(frame_mode, text="Entry Mode", variable=mode_var, value="entry", font=('TH Sarabun New', 16, 'bold'), bg=card_bg, fg=text_color, selectcolor=card_bg).pack(side=LEFT, padx=10)
+Radiobutton(frame_mode, text="Exit Mode", variable=mode_var, value="exit", font=('TH Sarabun New', 16, 'bold'), bg=card_bg, fg=text_color, selectcolor=card_bg).pack(side=LEFT, padx=10)
+
+frame_btns = Frame(f1, bg=card_bg)
+frame_btns.grid(row=4, column=0, columnspan=4, pady=25)
+
+btn_tap = Button(frame_btns, text="📡 Tap Card (Sync & Pay)", font=('TH Sarabun New', 18, 'bold'), bg=success_color, fg="white", relief="flat", activebackground="#27AE60", activeforeground="white", width=25,
        command=lambda: threading.Thread(target=thread_ab, daemon=True).start())
-btn_tap.grid(row=4, column=1, pady=20)
+btn_tap.pack(side=LEFT, padx=15)
 
-btn_reset = Button(f1, text="Reset Reader", font=('TH Sarabun New', 14), bg="orange",
+btn_reset = Button(frame_btns, text="🔄 Reset Reader", font=('TH Sarabun New', 16, 'bold'), bg="#95A5A6", fg="white", relief="flat", activebackground="#7F8C8D", activeforeground="white", width=15,
        command=lambda: threading.Thread(target=reset_fields, daemon=True).start())
-btn_reset.grid(row=4, column=2)
+btn_reset.pack(side=LEFT, padx=15)
 
 # เก็บ reference ปุ่มทั้งหมดเพื่อ disable/enable
 _gui_buttons.extend([btn_tap, btn_reset])
