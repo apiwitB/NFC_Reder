@@ -132,72 +132,55 @@ def send_otp_by_email(receiver_email, otp):
 
 # ===================== FTP (FIXED FOR NO TLS) =====================
 def download_json_from_ftp(card_id):
-    ftp_host = "localhost"
+    ftp_host = "127.0.0.1"
     ftp_port = 2121
-    ftp_user = "admin"  # แก้ให้ตรงกับ Server
-    ftp_pass = "1234"   # แก้ให้ตรงกับ Server
+    ftp_user = "admin"
+    ftp_pass = "1234"
     target_file = f"{card_id}.json"
 
-    ftp = FTP() # ใช้ FTP ปกติ
+    ftp = None
     try:
-        ftp.connect(ftp_host, ftp_port)
+        ftp = FTP()
+        ftp.connect(ftp_host, ftp_port, timeout=5)
         ftp.login(ftp_user, ftp_pass)
-        # ตัด ftp.prot_p() ออก
-        ftp.set_pasv(True)
-        
-        try:
-            ftp.cwd(card_id)
-        except:
-            return None
-            
-        files = ftp.nlst()
-        if target_file not in files:
-            ftp.quit()
-            return None
 
-        bio = BytesIO()
-        ftp.retrbinary('RETR ' + target_file, bio.write)
+        buffer = BytesIO()
+        ftp.retrbinary(f"RETR {target_file}", buffer.write)
         ftp.quit()
-        bio.seek(0)
-        return json.loads(bio.read().decode('utf-8'))
+
+        buffer.seek(0)
+        return json.loads(buffer.read().decode('utf-8'))
     except Exception as e:
-        print("FTP Error while downloading:", e)
-        try:
-            ftp.quit()
-        except:
-            pass
+        if ftp:
+            try: ftp.quit()
+            except: pass
+        print(f"FTP Info: {target_file} not found or {e}")
         return None
 
 def generate_and_upload_json(card_id, card_data):
-    ftp_host = "localhost"
+    ftp_host = "127.0.0.1"
     ftp_port = 2121
-    ftp_user = "admin"  # แก้ให้ตรงกับ Server
-    ftp_pass = "1234"   # แก้ให้ตรงกับ Server
+    ftp_user = "admin"
+    ftp_pass = "1234"
+    filename = f"{card_id}.json"
 
-    local_filename = f"{card_id}.json"
-    with open(local_filename, 'w', encoding='utf-8') as f:
-        json.dump(card_data, f, ensure_ascii=False, indent=4)
-
-    ftp = FTP() # ใช้ FTP ปกติ
+    ftp = None
     try:
-        ftp.connect(ftp_host, ftp_port)
+        json_content = json.dumps(card_data, indent=4, ensure_ascii=False)
+        buffer = BytesIO(json_content.encode('utf-8'))
+
+        ftp = FTP()
+        ftp.connect(ftp_host, ftp_port, timeout=5)
         ftp.login(ftp_user, ftp_pass)
-        # ตัด ftp.prot_p() ออก
-        ftp.set_pasv(True)
-        try:
-            ftp.mkd(card_id)
-        except:
-            pass
-        ftp.cwd(card_id)
-        with open(local_filename, 'rb') as f:
-            ftp.storbinary(f'STOR {card_id}.json', f)
+        ftp.storbinary(f"STOR {filename}", buffer)
         ftp.quit()
+        print(f"Successfully uploaded: {filename}")
     except Exception as e:
-        print("FTP Error:", e)
         if ftp:
-            ftp.close()
-    if os.path.exists(local_filename):
-        os.remove(local_filename)
+            try: ftp.quit()
+            except: pass
+        print(f"FTP Upload Error: {e}")
+
 
 # ===================== ฟังก์ชันสำหรับ GUI การลงทะเบียน =====================
 def send_otp():
