@@ -1,48 +1,37 @@
 {
     "card_id": "33_D4_23_03_90_00",
-    "balance": 20.0,
-    "email": "thanawisawa.m@ku.th",
+    "balance": 598.0,
+    "email": "apiwit.bunlom@gmail.com",
     "top_up_history": [
         {
-            "amount": 1000.0,
-            "time": "2026-03-05 12:25:16"
+            "amount": 888.0,
+            "time": "2026-03-11 17:12:53"
+        },
+        {
+            "amount": 10.0,
+            "time": "2026-03-11 17:18:07"
         }
     ],
     "transaction_log": [
         {
             "type": "entry",
-            "time": "2026-03-05 12:32:41",
-            "detail": "Entered at ด่าน B"
-        },
-        {
-            "type": "entry",
-            "time": "2026-03-05 12:32:58",
-            "detail": "Entered at ด่าน B"
-        },
-        {
-            "type": "exit",
-            "time": "2026-03-05 12:33:02",
-            "detail": "Exited from ด่าน C (entered at ด่าน B), cost 50.0"
-        },
-        {
-            "type": "entry",
-            "time": "2026-03-05 12:42:17",
+            "time": "2026-03-11 17:20:24",
             "detail": "Entered at ด่าน A"
         },
         {
             "type": "exit",
-            "time": "2026-03-05 12:42:24",
+            "time": "2026-03-11 17:20:35",
             "detail": "Exited from ด่าน B, cost 150.0"
         },
         {
             "type": "entry",
-            "time": "2026-03-05 12:42:32",
-            "detail": "Entered at ด่าน B"
+            "time": "2026-03-11 17:25:34",
+            "detail": "Entered at ด่าน A"
         },
         {
             "type": "exit",
-            "time": "2026-03-05 12:42:35",
-            "detail": "Exited from ด่าน C, cost 50.0"
+            "time": "2026-03-11 17:25:36",
+            "detail": "Exited from ด่าน B, cost 150.0"
         }
     ]
 }
